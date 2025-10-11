@@ -1,2 +1,5 @@
 ttps://mdbootstrap.com/docs/react/navigation
 https://mdbootstrap.com/docs/react/extended/
+https://fontawesome.com/icons/shopping-cart?f=utility&s=semibold&pc=%23000000&sc=%23000000
+https://mdbootstrap.com/docs/react/extended/registration-form/
+https://mdbootstrap.com/docs/react/extended/shopping-carts

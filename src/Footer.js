@@ -39,11 +39,11 @@ function Footer() {
                         <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
                         <h6 className='text-uppercase fw-bold mb-4'>
                             <MDBIcon color='secondary' icon='gem' className='me-3' />
-                            Company name
+                            Козачка Shop
                         </h6>
                         <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                            amet, consectetur adipisicing elit.
+                            GreenHaven Garden Centre is a modern home and garden store offering high-quality plants, tools, and garden care products.
+                            Our mission is to make your home and garden greener, cozier, and beautifully maintained.
                         </p>
                         </MDBCol>
 
@@ -99,17 +99,17 @@ function Footer() {
                         <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
                         <p>
                             <MDBIcon color='secondary' icon='home' className='me-2' />
-                            New York, NY 10012, US
+                            Letterkenny, Donegal, Ireland
                         </p>
                         <p>
                             <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                            info@example.com
+                            KozachkaShop@gmail.com
                         </p>
                         <p>
-                            <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
+                            <MDBIcon color='secondary' icon='phone' className='me-3' /> + 353 234 567 88
                         </p>
                         <p>
-                            <MDBIcon color='secondary' icon='print' className='me-3' /> + 01 234 567 89
+                            <MDBIcon color='secondary' icon='print' className='me-3' /> + 353 234 567 89
                         </p>
                         </MDBCol>
                     </MDBRow>
@@ -119,7 +119,7 @@ function Footer() {
                 <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
                     © 2025 Copyright:
                     <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-                    Garden Shop.com
+                    Kozachka Shop.com
                     </a>
                 </div>
             </MDBFooter>

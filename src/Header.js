@@ -4,13 +4,17 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 
 
-function Header() {
+
+function Header({ setSelectedCategory }) {
     return(
         <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-            <Navbar.Brand href="#">Garden shop</Navbar.Brand>
+            <Navbar.Brand href="http://localhost:3000/">Козачка Shop</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -18,22 +22,29 @@ function Header() {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
             >
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action2">Link</Nav.Link>
-                <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                    Another action
+                <Nav.Link href="http://localhost:3000/">Home</Nav.Link>
+                {/* <Nav.Link href="#action2">Link</Nav.Link> */}
+                <NavDropdown title="Categories" id="navbarScrollingDropdown">
+                <NavDropdown.Item onClick={() => setSelectedCategory("Plants")}>
+                    Plants
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                    Something else here
+                <NavDropdown.Item onClick={() => setSelectedCategory("Tools")}>
+                    Tools
+                </NavDropdown.Item>
+                {/* <NavDropdown.Divider /> */}
+                <NavDropdown.Item onClick={() => setSelectedCategory("Garden Care")}>
+                    Garden Care
                 </NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#" disabled>
+                {/* <Nav.Link href="#" disabled>
                 Link
-                </Nav.Link>
+                </Nav.Link> */}
             </Nav>
+
+            <Button id="cart" style={{ marginRight: '10px', backgroundColor: '#6c757d', borderColor: '#6c757d' }}>
+                <FontAwesomeIcon icon={faCartShopping} style={{color: "#000000",}} />
+            </Button>
+            
             <Form className="d-flex">
                 <Form.Control
                 type="search"
@@ -44,6 +55,10 @@ function Header() {
                 <Button variant="outline-success">Search</Button>
             </Form>
             </Navbar.Collapse>
+            <Button id="login" style={{ marginLeft: '10px', backgroundColor: '#6c757d', borderColor: '#6c757d' }}>
+                Log In
+            </Button>
+            {/* <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} /> */}
         </Container>
         </Navbar>
     );
