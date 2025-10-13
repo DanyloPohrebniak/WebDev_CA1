@@ -22,7 +22,7 @@ function Body({ selectedCategory, setSelectedCategory }) {
       </ButtonGroup>
 
       <h4 className="mt-4 mb-5">
-        <strong>Product List</strong>
+        <strong>{selectedCategory} Product List</strong>
       </h4>
 
       <MDBRow>
