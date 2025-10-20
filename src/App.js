@@ -1,14 +1,14 @@
 import logo from './logo.jpg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from "react";
+import { React, useState } from "react";
 
 import Header from './Header.js'
 import Body from './Body.js'
 import Footer from './Footer.js'
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("Plants");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
     <div className="App">

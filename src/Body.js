@@ -10,12 +10,15 @@ import products from './data/products.json';
 
 function Body({ selectedCategory, setSelectedCategory }) {
 
-  const filteredProducts = products.filter(product => product.category === selectedCategory);
+  const filteredProducts = selectedCategory === "All"
+    ? products
+    : products.filter(product => product.category === selectedCategory);
 
   return (
     <MDBContainer fluid className="my-5 text-center">
       
       <ButtonGroup aria-label="Basic example">
+        <Button variant="secondary" onClick={() => setSelectedCategory("All")}>All</Button>
         <Button variant="secondary" onClick={() => setSelectedCategory("Plants")}>Plants</Button>
         <Button variant="secondary" onClick={() => setSelectedCategory("Tools")}>Tools</Button>
         <Button variant="secondary" onClick={() => setSelectedCategory("Garden Care")}>Garden Care</Button>

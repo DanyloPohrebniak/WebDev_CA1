@@ -4,8 +4,9 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardImage,
-  MDBRipple,
+  MDBRipple, 
 } from "mdb-react-ui-kit";
+import Button from 'react-bootstrap/Button';
 
 function ProductCard({
   image,
@@ -18,7 +19,7 @@ function ProductCard({
   return (
     <MDBCard>
       <MDBRipple rippleColor="light" rippleTag="div" className="bg-image rounded hover-zoom">
-        <MDBCardImage src={image} fluid className="w-100" />
+        <MDBCardImage src={image} fluid className="w-100" style={{height: 500}} />
         <a href="#!">
           <div className="mask">
             <div className="d-flex justify-content-start align-items-end h-100">
@@ -56,6 +57,12 @@ function ProductCard({
             price
           )}
         </h6>
+        <Button variant="success">
+          Buy now
+        </Button><br></br>
+        <Button variant="secondary" style={{marginTop: 10 }}>
+          Add to cart
+        </Button>
       </MDBCardBody>
     </MDBCard>
   );
