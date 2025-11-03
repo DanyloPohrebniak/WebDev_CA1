@@ -15,6 +15,8 @@ function ProductCard({
   category,
   price,
   discountedPrice = null,
+  addToCart,
+  product
 }) {
   return (
     <MDBCard>
@@ -60,7 +62,7 @@ function ProductCard({
         <Button variant="success">
           Buy now
         </Button><br></br>
-        <Button variant="secondary" style={{marginTop: 10 }}>
+        <Button variant="secondary" style={{marginTop: 10 }} onClick={() => addToCart(product)}>
           Add to cart
         </Button>
       </MDBCardBody>

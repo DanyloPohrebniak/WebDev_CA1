@@ -7,11 +7,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 import SignUp from './SignUp';
 
 
 
-function Header({ setSelectedCategory, onSignUpClick }) {
+function Header({ setSelectedCategory, onSignUpClick, cartItems }) {
     const [showSignUp, setShowSignUp] = useState(false);
 
     const handleSignUpOpen = () => setShowSignUp(true);
@@ -53,6 +55,7 @@ function Header({ setSelectedCategory, onSignUpClick }) {
 
                 <Button id="cart" style={{ marginRight: '10px', backgroundColor: '#6c757d', borderColor: '#6c757d' }}>
                     <FontAwesomeIcon icon={faCartShopping} style={{color: "#000000",}} />
+                    <span>({cartItems.length})</span>
                 </Button>
                 
                 <Form className="d-flex">

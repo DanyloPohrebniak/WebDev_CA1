@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
 import ProductCard from "./ProductCard"; 
 import products from './data/products.json';
 
-function Body({ selectedCategory, setSelectedCategory }) {
+function Body({ selectedCategory, setSelectedCategory, addToCart }) {
 
   const filteredProducts = selectedCategory === "All"
     ? products
@@ -31,7 +32,7 @@ function Body({ selectedCategory, setSelectedCategory }) {
       <MDBRow>
         {filteredProducts.map((product, index) => (
           <MDBCol key={index} md="6" lg="4" className="mb-4">
-            <ProductCard {...product} />
+            <ProductCard {...product} product={product} addToCart={addToCart}/>
           </MDBCol>
         ))}
       </MDBRow>

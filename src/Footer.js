@@ -43,7 +43,6 @@ function Footer() {
                         </h6>
                         <p>
                             GreenHaven Garden Centre is a modern home and garden store offering high-quality plants, tools, and garden care products.
-                            Our mission is to make your home and garden greener, cozier, and beautifully maintained.
                         </p>
                         </MDBCol>
 
