@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "image": "./images/onions.webp",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -7,18 +8,20 @@
     ],
     "title": "Onion",
     "category": "Plants",
-    "price": "€0.99"
+    "price": 0.99
   },
   {
+    "id": 2,
     "image": "./images/beetroot.jpg",
     "badges": [
       { "label": "Eco", "color": "bg-success" }
     ],
     "title": "Beetroot",
     "category": "Plants",
-    "price": "€1.50"
+    "price": 1.5
   },
   {
+    "id": 3,
     "image": "./images/cucumber.jpg",
     "badges": [
       { "label": "Eco", "color": "bg-success" },
@@ -26,10 +29,11 @@
     ],
     "title": "Cucumber",
     "category": "Plants",
-    "price": "€0.99",
-    "discountedPrice": "€0.89"
+    "price": 0.99,
+    "discountedPrice": 0.89
   },
   {
+    "id": 4,
     "image": "./images/carrots.webp",
     "badges": [
       { "label": "Eco", "color": "bg-success" },
@@ -37,19 +41,21 @@
     ],
     "title": "Carrot",
     "category": "Plants",
-    "price": "€0.99",
-    "discountedPrice": "€0.89"
+    "price": 0.99,
+    "discountedPrice": 0.89
   },
   {
+    "id": 5,
     "image": "./images/cabbage.jpg",
     "badges": [
       { "label": "Eco", "color": "bg-success" }
     ],
     "title": "Cabbage",
     "category": "Plants",
-    "price": "€3.00"
+    "price": 3.0
   },
   {
+    "id": 6,
     "image": "./images/pepper.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -58,19 +64,21 @@
     ],
     "title": "Chilli Pepper",
     "category": "Plants",
-    "price": "€2.99",
-    "discountedPrice": "€2.69"
+    "price": 2.99,
+    "discountedPrice": 2.69
   },
   {
+    "id": 7,
     "image": "./images/hand_trowel.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" }
     ],
     "title": "Hand Trowel",
     "category": "Tools",
-    "price": "€19.99"
+    "price": 19.99
   },
   {
+    "id": 8,
     "image": "./images/garden_fork.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -78,20 +86,22 @@
     ],
     "title": "Garden Fork",
     "category": "Tools",
-    "price": "€81.99",
-    "discountedPrice": "€67.67"
+    "price": 81.99,
+    "discountedPrice": 67.67
   },
   {
+    "id": 9,
     "image": "./images/digging_spade.jpg",
     "badges": [
       { "label": "-10%", "color": "bg-danger" }
     ],
     "title": "Digging Spade",
     "category": "Tools",
-    "price": "€2.99",
-    "discountedPrice": "€2.69"
+    "price": 2.99,
+    "discountedPrice": 2.69
   },
   {
+    "id": 10,
     "image": "./images/rake.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -99,19 +109,21 @@
     ],
     "title": "Rake",
     "category": "Tools",
-    "price": "€19.99",
-    "discountedPrice": "€17.99"
+    "price": 19.99,
+    "discountedPrice": 17.99
   },
   {
+    "id": 11,
     "image": "./images/secateurs.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" }
     ],
     "title": "Secateurs",
     "category": "Tools",
-    "price": "€19.99"
+    "price": 19.99
   },
   {
+    "id": 12,
     "image": "./images/leaf_rake.webp",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -120,10 +132,11 @@
     ],
     "title": "Leaf Rake",
     "category": "Tools",
-    "price": "€29.99",
-    "discountedPrice": "€26.99"
+    "price": 29.99,
+    "discountedPrice": 26.99
   },
   {
+    "id": 13,
     "image": "./images/leaf_blower.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -132,19 +145,21 @@
     ],
     "title": "Leaf Blower",
     "category": "Garden Care",
-    "price": "€299.99",
-    "discountedPrice": "€269.99"
+    "price": 299.99,
+    "discountedPrice": 269.99
   },
   {
+    "id": 14,
     "image": "./images/lawnmover.jpg",
     "badges": [
       { "label": "Eco", "color": "bg-success" }
     ],
     "title": "Lawnmover",
     "category": "Garden Care",
-    "price": "€499.99"
+    "price": 499.99
   },
   {
+    "id": 15,
     "image": "./images/rolling_aerator.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" },
@@ -153,19 +168,21 @@
     ],
     "title": "Rolling Aerator",
     "category": "Garden Care",
-    "price": "€69.99",
-    "discountedPrice": "€62.99"
+    "price": 69.99,
+    "discountedPrice": 62.99
   },
   {
+    "id": 16,
     "image": "./images/stepladder.jpg",
     "badges": [
       { "label": "New", "color": "bg-primary" }
     ],
     "title": "Stepladder",
     "category": "Garden Care",
-    "price": "€32.99"
+    "price": 32.99
   },
   {
+    "id": 17,
     "image": "./images/strimmer.jpg",
     "badges": [
       { "label": "Eco", "color": "bg-success" },
@@ -173,17 +190,18 @@
     ],
     "title": "Petrol Strimmer",
     "category": "Garden Care",
-    "price": "€999.99",
-    "discountedPrice": "€699.99"
+    "price": 999.99,
+    "discountedPrice": 699.99
   },
   {
+    "id": 18,
     "image": "./images/wheelbarrow.jpg",
     "badges": [
       { "label": "-20%", "color": "bg-danger" }
     ],
     "title": "Wheelbarrow",
     "category": "Garden Care",
-    "price": "€49.99",
-    "discountedPrice": "€39.99"
+    "price": 49.99,
+    "discountedPrice": 39.99
   }
 ]

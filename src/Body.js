@@ -1,19 +1,19 @@
-// components/Body.jsx
 import React, { useState } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
 import ProductCard from "./ProductCard"; 
 import products from './data/products.json';
 
-function Body({ selectedCategory, setSelectedCategory, addToCart }) {
+function Body({ selectedCategory, setSelectedCategory, addToCart, searchedItem }) {
 
-  const filteredProducts = selectedCategory === "All"
-    ? products
-    : products.filter(product => product.category === selectedCategory);
+  const filteredProducts = products.filter(product => {
+    const matchCategory = selectedCategory === "All" || product.category === selectedCategory;
+    const matchSearch = product.title.toLowerCase().includes(searchedItem.toLowerCase());
+    return matchCategory && matchSearch;
+  });
 
   return (
     <MDBContainer fluid className="my-5 text-center">
@@ -30,11 +30,15 @@ function Body({ selectedCategory, setSelectedCategory, addToCart }) {
       </h4>
 
       <MDBRow>
-        {filteredProducts.map((product, index) => (
-          <MDBCol key={index} md="6" lg="4" className="mb-4">
-            <ProductCard {...product} product={product} addToCart={addToCart}/>
-          </MDBCol>
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product, index) => (
+            <MDBCol key={index} md="6" lg="4" className="mb-4">
+              <ProductCard {...product} product={product} addToCart={addToCart} />
+            </MDBCol>
+          ))
+        ) : (
+          <p>No products found 😢</p>
+        )}
       </MDBRow>
     </MDBContainer>
   );

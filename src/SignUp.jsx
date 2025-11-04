@@ -1,98 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
   MDBInput,
-  MDBIcon,
+  MDBCol,
+  MDBRow,
   MDBCheckbox,
-  MDBModal,
-  MDBModalDialog,
-  MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
-  MDBModalBody
+  MDBBtn
 } from 'mdb-react-ui-kit';
 
-function SignUp({ show, handleClose }) {
+export default function SignUp() {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
+  // handles name input
+  const handleName = (e) => {
+    const value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+    if (value.length <= 20) setName(value);
+  };
+
+  // handles number input
+  const handleNumber = (e) => {
+    const value = e.target.value.replace(/\D/g, ''); 
+    if (value.length <= 10) setNumber(value);
+  };
   return (
-    <MDBModal show={show} setShow={handleClose} tabIndex='-1'>
-      <MDBModalDialog size='lg' centered>
-        <MDBModalContent>
-          <MDBModalHeader>
-            <MDBModalTitle>Sign Up</MDBModalTitle>
-            <MDBBtn className='btn-close' color='none' onClick={handleClose}></MDBBtn>
-          </MDBModalHeader>
-          <MDBModalBody>
-            <MDBContainer>
-              <MDBCard className='text-black' style={{ borderRadius: '25px' }}>
-                <MDBCardBody>
-                  <MDBRow>
-                    <MDBCol
-                      md='10'
-                      lg='6'
-                      className='order-2 order-lg-1 d-flex flex-column align-items-center'
-                    >
-                      <p className='text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4'>
-                        Sign up
-                      </p>
+    <div 
+      className="d-flex justify-content-center align-items-center-start vh-75"
+      style={{ backgroundColor: '#f8f9fa' }}
+    >
+      <div 
+        className="text-center p-4 rounded-4 shadow"
+        style={{ width: "350px", backgroundColor: 'white', border: '1px solid #dee2e6' }}
+      >
+        <h4 className="mb-4">Sign In</h4>
+        <form>
+          <MDBInput 
+            className='mb-4' 
+            type='text' 
+            id='formName'
+            placeholder='Name (only letters, max 20)'
+            value={name}
+            onChange={handleName}
+          />
 
-                      <div className='d-flex flex-row align-items-center mb-4'>
-                        <MDBIcon fas icon='user me-3' size='lg' />
-                        <MDBInput label='Your Name' id='form1' type='text' className='w-100' />
-                      </div>
+          <MDBInput 
+            className='mb-4' 
+            type='text' 
+            id='formNumber' 
+            placeholder='Phone number (10 digits)'
+            value={number}
+            onChange={handleNumber}
+            inputMode="numeric"
+          />
 
-                      <div className='d-flex flex-row align-items-center mb-4'>
-                        <MDBIcon fas icon='envelope me-3' size='lg' />
-                        <MDBInput label='Your Email' id='form2' type='email' />
-                      </div>
-
-                      <div className='d-flex flex-row align-items-center mb-4'>
-                        <MDBIcon fas icon='lock me-3' size='lg' />
-                        <MDBInput label='Password' id='form3' type='password' />
-                      </div>
-
-                      <div className='d-flex flex-row align-items-center mb-4'>
-                        <MDBIcon fas icon='key me-3' size='lg' />
-                        <MDBInput label='Repeat your password' id='form4' type='password' />
-                      </div>
-
-                      <div className='mb-4'>
-                        <MDBCheckbox
-                          name='flexCheck'
-                          id='flexCheckDefault'
-                          label='Subscribe to our newsletter'
-                        />
-                      </div>
-
-                      <MDBBtn className='mb-4' size='lg'>
-                        Register
-                      </MDBBtn>
-                    </MDBCol>
-
-                    <MDBCol
-                      md='10'
-                      lg='6'
-                      className='order-1 order-lg-2 d-flex align-items-center'
-                    >
-                      <MDBCardImage
-                        src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp'
-                        fluid
-                      />
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBContainer>
-          </MDBModalBody>
-        </MDBModalContent>
-      </MDBModalDialog>
-    </MDBModal>
+          <MDBBtn type='submit' block>
+            Sign in
+          </MDBBtn>
+        </form>
+      </div>
+    </div>
   );
 }
-
-export default SignUp;

@@ -19,10 +19,9 @@ function ProductCard({
   product
 }) {
   return (
-    <MDBCard>
+    <MDBCard className="h-100 shadow-sm">
       <MDBRipple rippleColor="light" rippleTag="div" className="bg-image rounded hover-zoom">
-        <MDBCardImage src={image} fluid className="w-100" style={{height: 500}} />
-        <a href="#!">
+        <MDBCardImage src={image} fluid className="w-100" style={{ height: 350, objectFit: "contain" }} />
           <div className="mask">
             <div className="d-flex justify-content-start align-items-end h-100">
               <h5>
@@ -34,37 +33,30 @@ function ProductCard({
               </h5>
             </div>
           </div>
-          <div className="hover-overlay">
-            <div
-              className="mask"
-              style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-            ></div>
-          </div>
-        </a>
       </MDBRipple>
+
       <MDBCardBody>
-        <a href="#!" className="text-reset">
+        <a className="text-reset">
           <h5 className="card-title mb-3">{title}</h5>
         </a>
-        <a href="#!" className="text-reset">
+        <a className="text-reset">
           <p>{category}</p>
         </a>
         <h6 className="mb-3">
           {discountedPrice ? (
             <>
-              <s>{price}</s>
-              <strong className="ms-2 text-danger">{discountedPrice}</strong>
+              <s className="text-muted">€{price.toFixed(2)}</s>
+              <strong className="ms-2 text-danger">€{discountedPrice.toFixed(2)}</strong>
             </>
           ) : (
-            price
+            <strong>€{price.toFixed(2)}</strong>
           )}
         </h6>
-        <Button variant="success">
-          Buy now
-        </Button><br></br>
-        <Button variant="secondary" style={{marginTop: 10 }} onClick={() => addToCart(product)}>
+
+        <Button variant="success"  onClick={() => addToCart(product)}>
           Add to cart
         </Button>
+
       </MDBCardBody>
     </MDBCard>
   );

@@ -7,13 +7,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
-import SignUp from './SignUp';
+import { Link } from 'react-router-dom';
 
 
-
-function Header({ setSelectedCategory, onSignUpClick, cartItems }) {
+function Header({ setSelectedCategory, cartItems, searchItem }) {
     const [showSignUp, setShowSignUp] = useState(false);
 
     const handleSignUpOpen = () => setShowSignUp(true);
@@ -22,7 +19,7 @@ function Header({ setSelectedCategory, onSignUpClick, cartItems }) {
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="http://localhost:3000/">Козачка Shop</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Козачка Shop</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -31,7 +28,7 @@ function Header({ setSelectedCategory, onSignUpClick, cartItems }) {
                     navbarScroll
                 >
                     <Nav.Link href="http://localhost:3000/">Home</Nav.Link>
-                    {/* <Nav.Link href="#action2">Link</Nav.Link> */}
+
                     <NavDropdown title="Categories" id="navbarScrollingDropdown">
                     <NavDropdown.Item onClick={() => setSelectedCategory("All")}>
                         All Products
@@ -43,17 +40,17 @@ function Header({ setSelectedCategory, onSignUpClick, cartItems }) {
                     <NavDropdown.Item onClick={() => setSelectedCategory("Tools")}>
                         Tools
                     </NavDropdown.Item>
-                    {/* <NavDropdown.Divider /> */}
                     <NavDropdown.Item onClick={() => setSelectedCategory("Garden Care")}>
                         Garden Care
                     </NavDropdown.Item>
                     </NavDropdown>
-                    {/* <Nav.Link href="#" disabled>
-                    Link
-                    </Nav.Link> */}
                 </Nav>
 
-                <Button id="cart" style={{ marginRight: '10px', backgroundColor: '#6c757d', borderColor: '#6c757d' }}>
+                <Button 
+                    id="cart" 
+                    style={{ marginRight: '10px', backgroundColor: '#6c757d', borderColor: '#6c757d' }} 
+                    as={Link} to="/cart">
+
                     <FontAwesomeIcon icon={faCartShopping} style={{color: "#000000",}} />
                     <span>({cartItems.length})</span>
                 </Button>
@@ -64,23 +61,24 @@ function Header({ setSelectedCategory, onSignUpClick, cartItems }) {
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
+                    onChange={(e) => searchItem(e.target.value)}
                     />
                     <Button variant="success">Search</Button>
                 </Form>
+
                 </Navbar.Collapse>
+                
                 <Button
                     variant="secondary"
                     id="login"
                     style={{ marginLeft: '10px'}}
-                    onClick={onSignUpClick} 
+                    as={Link} to="/sign-up"
                 >
                     Sign Up
                 </Button>
                 {/* <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} /> */}
             </Container>
-            </Navbar>
-            
-            <SignUp show={showSignUp} handleClose={handleSignUpClose} />
+            </Navbar>            
         </>
     );
 }
