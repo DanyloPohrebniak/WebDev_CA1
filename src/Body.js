@@ -32,7 +32,7 @@ function Body({ selectedCategory, setSelectedCategory, addToCart, searchedItem }
       <MDBRow>
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product, index) => (
-            <MDBCol key={index} md="6" lg="4" className="mb-4">
+            <MDBCol key={index} md="6" lg="2" className="mb-4">
               <ProductCard {...product} product={product} addToCart={addToCart} />
             </MDBCol>
           ))
