@@ -9,6 +9,7 @@ import Footer from './Footer.js'
 import Cart from './Cart.jsx';
 import SignUp from './SignUp.jsx';
 import { UserProvider } from './data/userData.jsx';
+import Payment from './Payment.jsx'
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -80,6 +81,14 @@ function App() {
             }
           >
           </Route> 
+
+          <Route 
+            path="/payment" 
+            element={
+            <Payment clearCart={() => setCartItems([])}/>
+            } 
+          />
+
          </Routes>
         <Footer />
       </Router>

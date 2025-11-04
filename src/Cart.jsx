@@ -16,6 +16,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 
 export default function Cart({ cartItems, addToCart, removeFromCart }) {
@@ -28,7 +29,6 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-start h-100 g-4">
           
-          {/* 🛒 Таблиця товарів */}
           <MDBCol lg="8">
             <MDBTable responsive>
               <MDBTableHead>
@@ -117,8 +117,8 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
                   <strong>€{total.toFixed(2)}</strong>
                 </div>
 
-                <Button block variant='success' size="lg" disabled={cartItems.length === 0}>
-                  Checkout
+                <Button block variant='success' size="lg" disabled={cartItems.length === 0} as={Link} to="/payment">
+                  Proceed to payment
                 </Button>
               </MDBCardBody>
             </MDBCard>

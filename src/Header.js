@@ -18,9 +18,10 @@ import { UserContext } from '../src/data/userData.jsx'
 function Header({ setSelectedCategory, cartItems, searchItem }) {
     const { user, setUser } = useContext(UserContext);
 
-     const handleLogOut = () => {
+    // handles log out button submition
+    const handleLogOut = () => {
         setUser(null);
-     };
+    };
 
     return(
         <>

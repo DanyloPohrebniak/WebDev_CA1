@@ -37,7 +37,7 @@ function Body({ selectedCategory, setSelectedCategory, addToCart, searchedItem }
             </MDBCol>
           ))
         ) : (
-          <p>No products found 😢</p>
+          <p>No products found</p>
         )}
       </MDBRow>
     </MDBContainer>
