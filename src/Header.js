@@ -1,20 +1,27 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 
-function Header({ setSelectedCategory, cartItems, searchItem }) {
-    const [showSignUp, setShowSignUp] = useState(false);
 
-    const handleSignUpOpen = () => setShowSignUp(true);
-    const handleSignUpClose = () => setShowSignUp(false);
+import { UserContext } from '../src/data/userData.jsx'
+
+
+function Header({ setSelectedCategory, cartItems, searchItem }) {
+    const { user, setUser } = useContext(UserContext);
+
+     const handleLogOut = () => {
+        setUser(null);
+     };
+
     return(
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
@@ -66,18 +73,47 @@ function Header({ setSelectedCategory, cartItems, searchItem }) {
                     <Button variant="success">Search</Button>
                 </Form>
 
-                </Navbar.Collapse>
                 
+
+                {!user ? (
+                // if user doesn't registered, shows button sign up
                 <Button
                     variant="secondary"
                     id="login"
-                    style={{ marginLeft: '10px'}}
-                    as={Link} to="/sign-up"
+                    style={{ marginLeft: "10px" }}
+                    as={Link}
+                    to="/sign-up"
                 >
                     Sign Up
                 </Button>
-                {/* <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} /> */}
-            </Container>
+                ) : (
+                // if user registered, whows its icon with hover window
+                <Dropdown align="end" className="ms-3">
+                    <Dropdown.Toggle
+                        variant="light"
+                        id="dropdown-user"
+                        className="border-0"
+                    >
+                        <FontAwesomeIcon icon={faUser} size="lg" color="#000000" />
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className="shadow-sm">
+                        <Dropdown.Header>
+                            <strong>Username: {user.name}</strong><br />
+                            <small className="text-muted">Number: {user.number}</small>
+                        </Dropdown.Header>
+
+                        <Dropdown.Divider />
+
+                        <Dropdown.Item as={Button} onClick={handleLogOut}>
+                        Log Out
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                    
+                </Dropdown>
+                )}
+                </Navbar.Collapse>
+                </Container>
             </Navbar>            
         </>
     );

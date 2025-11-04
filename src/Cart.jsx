@@ -15,6 +15,7 @@ import {
 } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Button } from "react-bootstrap";
 
 
 export default function Cart({ cartItems, addToCart, removeFromCart }) {
@@ -40,8 +41,8 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
               <MDBTableBody>
                 {cartItems.length === 0 ? (
                   <tr>
-                    <td colSpan="3" className="text-center py-5">
-                      Your cart is empty 🛒
+                    <td colSpan="3" className="text-center py-5 muted">
+                      Your cart is empty 
                     </td>
                   </tr>
                 ) : (
@@ -85,7 +86,7 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
                         </div>
                       </td>
                       <td className="align-middle">
-                        <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+                        <strong>€{(item.price * item.quantity).toFixed(2)}</strong>
                       </td>
                     </tr>
                   ))
@@ -94,7 +95,6 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
             </MDBTable>
           </MDBCol>
 
-          {/* 💳 Оплата */}
           <MDBCol lg="4">
             <MDBCard className="shadow-2-strong" style={{ borderRadius: "16px" }}>
               <MDBCardBody className="p-4">
@@ -102,24 +102,24 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
 
                 <div className="d-flex justify-content-between">
                   <p>Subtotal</p>
-                  <p>${subtotal.toFixed(2)}</p>
+                  <p>€{subtotal.toFixed(2)}</p>
                 </div>
 
                 <div className="d-flex justify-content-between">
                   <p>Shipping</p>
-                  <p>${shipping.toFixed(2)}</p>
+                  <p>€{shipping.toFixed(2)}</p>
                 </div>
 
                 <hr />
 
                 <div className="d-flex justify-content-between mb-4">
                   <strong>Total</strong>
-                  <strong>${total.toFixed(2)}</strong>
+                  <strong>€{total.toFixed(2)}</strong>
                 </div>
 
-                <MDBBtn block size="lg" disabled={cartItems.length === 0}>
+                <Button block variant='success' size="lg" disabled={cartItems.length === 0}>
                   Checkout
-                </MDBBtn>
+                </Button>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>

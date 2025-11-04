@@ -8,6 +8,7 @@ import Body from './Body.js'
 import Footer from './Footer.js'
 import Cart from './Cart.jsx';
 import SignUp from './SignUp.jsx';
+import { UserProvider } from './data/userData.jsx';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -45,7 +46,8 @@ function App() {
   };
 
   return (
-    <Router>
+    <UserProvider>
+      <Router>
         <Header setSelectedCategory={setSelectedCategory} cartItems={cartItems} searchItem={searchItem}/>
          <Routes>
           <Route 
@@ -80,7 +82,9 @@ function App() {
           </Route> 
          </Routes>
         <Footer />
-    </Router>
+      </Router>
+  
+    </UserProvider>
     
   );
 }

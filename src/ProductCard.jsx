@@ -36,10 +36,10 @@ function ProductCard({
       </MDBRipple>
 
       <MDBCardBody>
-        <a className="text-reset">
+        <a>
           <h5 className="card-title mb-3">{title}</h5>
         </a>
-        <a className="text-reset">
+        <a className="text-muted">
           <p>{category}</p>
         </a>
         <h6 className="mb-3">
