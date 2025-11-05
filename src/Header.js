@@ -9,7 +9,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 
 import { UserContext } from '../src/data/userData.jsx'
@@ -17,6 +17,8 @@ import { UserContext } from '../src/data/userData.jsx'
 
 function Header({ setSelectedCategory, cartItems, searchItem }) {
     const { user, setUser } = useContext(UserContext);
+
+    const navigate = useNavigate();
 
     // handles log out button submition
     const handleLogOut = () => {
@@ -35,7 +37,7 @@ function Header({ setSelectedCategory, cartItems, searchItem }) {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="http://localhost:3000/">Home</Nav.Link>
+                    <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
 
                     <NavDropdown title="Categories" id="navbarScrollingDropdown">
                     <NavDropdown.Item onClick={() => setSelectedCategory("All")}>
