@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   MDBBtn,
   MDBCard,
@@ -17,12 +17,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+import { UserContext } from './data/userData.jsx';
 
 
 export default function Cart({ cartItems, addToCart, removeFromCart }) {
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = subtotal > 0 ? 2.99 : 0;
   const total = subtotal + shipping;
+
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleProceed = () => {
+    if (!user) {
+      const goToSignUp = window.confirm(
+        "You need to be signed in to continue. Do You want to Sign in?"
+      );
+      if (goToSignUp) {
+        navigate("/sign-up");
+      } else {
+        navigate("/");
+      }
+    } else {
+      navigate("/payment");
+    }
+  };
 
   return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#f8f9fa" }}>
@@ -64,9 +85,9 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
                       </td>
                       <td>
                         <div className="d-flex flex-row align-items-center">
-                          <MDBBtn className="px-2" color="link" onClick={() => removeFromCart(item)}>
+                          <Button variant="outlined" color="error" onClick={() => removeFromCart(item)}>
                             <FontAwesomeIcon icon={faMinus} />
-                          </MDBBtn>
+                          </Button>
 
                           <MDBInput
                             readOnly
@@ -76,13 +97,13 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
                             value={item.quantity}
                           />
 
-                          <MDBBtn className="px-2" color="link" onClick={() => addToCart(item)}>
+                          <Button variant="outlined" color="error" onClick={() => addToCart(item)}>
                             <FontAwesomeIcon icon={faPlus} />
-                          </MDBBtn>
+                          </Button>
 
-                          <MDBBtn color="link" onClick={() => removeFromCart(item, true)}>
+                          <Button variant="outlined" color="error" onClick={() => removeFromCart(item, true)}>
                             <FontAwesomeIcon icon={faTrash} />
-                          </MDBBtn>
+                          </Button>
                         </div>
                       </td>
                       <td className="align-middle">
@@ -117,7 +138,7 @@ export default function Cart({ cartItems, addToCart, removeFromCart }) {
                   <strong>€{total.toFixed(2)}</strong>
                 </div>
 
-                <Button block variant='success' size="lg" disabled={cartItems.length === 0} as={Link} to="/payment">
+                <Button block variant='success' size="lg" disabled={cartItems.length === 0} onClick={handleProceed}>
                   Proceed to payment
                 </Button>
               </MDBCardBody>

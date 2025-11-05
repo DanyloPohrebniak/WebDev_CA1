@@ -30,13 +30,50 @@ const CreditCard = ({ clearCart }) => {
     if (value.length <= 16) setNumber(value);
   };
 
-  // handles expiration date input
+  // handles expiration date input (MM/YY) + validation for expiration
   const handleDate = (e) => {
     let value = e.target.value.replace(/\D/g, "");
+
     if (value.length > 4) value = value.slice(0, 4);
     if (value.length > 2) value = value.slice(0, 2) + "/" + value.slice(2);
+
     setDate(value);
+
+    if (value.length === 5) {
+      const [monthStr, yearStr] = value.split("/");
+      const month = parseInt(monthStr, 10);
+      const year = parseInt("20" + yearStr, 10);
+
+      
+      if (month < 1 || month > 12) {
+        setErrors((prev) => ({
+          ...prev,
+          date: "Wrong month (correct is 01–12)",
+        }));
+        return;
+      }
+
+      // current date
+      const now = new Date();
+      const currentMonth = now.getMonth() + 1;
+      const currentYear = now.getFullYear();
+
+      // check for expiration
+      if (year < currentYear || (year === currentYear && month < currentMonth)) {
+        setErrors((prev) => ({
+          ...prev,
+          date: "Card Expired",
+        }));
+      } else {
+        setErrors((prev) => {
+          const updated = { ...prev };
+          delete updated.date;
+          return updated;
+        });
+      }
+    }
   };
+
 
   // handles cvc code input
   const handleCvc = (e) => {
